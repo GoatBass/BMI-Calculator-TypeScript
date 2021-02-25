@@ -3,15 +3,15 @@ const form = document.querySelector('form');
 form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    const height = parseInt(document.querySelector('#height').value);
-    const weight = parseInt(document.querySelector('#weight').value);
+    const height = parseInt((<HTMLInputElement>document.querySelector('#heigth')).value);
+    const weight = parseInt( ( <HTMLInputElement> document.querySelector( '#weight' ) ).value );
     const results = document.querySelector('#results');
 
-    if((height === '') || (height < 0) || (isNaN(height))){
+    if((height < 0) || (isNaN(height))){
         //NaN !== NaN
         results.innerHTML = "Please provide a valid height";
 
-    } else if (weight === '' || weight < 0 || isNaN(weight)){
+    } else if (weight < 0 || isNaN(weight)){
         results.innerHTML = "Please provide a valid weight";
     } else {
     //calculate BMI
